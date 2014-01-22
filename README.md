@@ -6,9 +6,14 @@ PowerShell Module to install VMware vSphere vCenter 5.5.  Designed for automated
 A guide to what the parameters are used for can be found in the "Command-Line Installation and 
 Upgrade of VMware vCenter Server 5.5" here: http://www.vmware.com/files/pdf/techpaper/vcenter_server_cmdline_install.pdf
 
+####User Account Control (UAC) 
+Best have this disabled while running the module.
+
+####Required Administrator Rights for Installation
+Installation of all vCenter Server components requires Administrator‐level privilege. Make sure the VPX_ACCOUNT has Logon as a service rights. 
 
 ##Example 
 ```powershell
 Import-Module vcenterInstallation -force
-Install-vCenter "D:\Development\Projects\Powershell\Powershell and JSON example\vcenter.json"
+Install-vCenter "D:\data\vcenter.json"
 ```
