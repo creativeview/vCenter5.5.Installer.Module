@@ -1,0 +1,39 @@
+{
+    "InstallFlags": {
+        "Install_msvc_2005": true,
+        "Install_SSO": true,
+		"Install_InventoryService": true,
+		"Install_vCenter": true,
+		"Install_WebClient": true,
+		"Install_vSphereClient": true
+    },
+	"InstallParameters": {
+		"vCenterBaseInstallPath" : "C:\\Software\\VMware\\vCenter 5.5a\\",
+		"SSO_DeployMode" : "FIRSTDOMAIN",
+		"SSO_HTTPport" : "7444",
+		"SSO_ADMIN" : "administrator@vsphere.local",
+		"SSO_PWD" : "password",
+		"SSO_Site" : "TestSite",
+        "InventoryService_HTTPS_PORT" : "10443",
+        "InventoryService_XDB_PORT" : "10109",
+        "InventoryService_FEDERATION_PORT" : "10111",
+        "InventoryService_QUERY_SERVICE_NUKE_DATABASE" : "0",
+        "InventoryService_TOMCAT_MAX_MEMORY_OPTION" : "S",
+		"VC_ADMIN_USER" : "administrator@vsphere.local",
+		"VPX_ACCOUNT" : "domain\\administrator",
+		"VPX_PASSWORD" : "password",
+		"vCenter_FORMAT_DB" : "1",
+		"vCenter_JVM_MEMORY_OPTION" : "S",
+		"DB_DSN" : "vCenter",
+		"VPX_ACCOUNT" : "domain\\administrator",
+		"VPX_PASSWORD" : "password",
+		"vcenterIPAddress" : "vcenteraddress.domain.local",
+        "vCenter_VCS_HTTPS_PORT" : "443",
+        "vCenter_VCS_HTTP_PORT" : "80",
+        "vCenter_VCS_HEARTBEAT_PORT" : "902",
+        "vCenter_TC_HTTP_PORT" : "8080",
+        "vCenter_TC_HTTPS_PORT" : "8443",
+        "vCenter_VCS_ADAM_LDAP_PORT" : "389",
+        "vCenter_VCS_ADAM_SSL_PORT" : "902"
+	}
+}
