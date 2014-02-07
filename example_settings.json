@@ -1,12 +1,4 @@
 {
-    "InstallFlags": {
-        "Install_msvc_2005": true,
-        "Install_SSO": true,
-		"Install_InventoryService": true,
-		"Install_vCenter": true,
-		"Install_WebClient": true,
-		"Install_vSphereClient": true
-    },
 	"InstallParameters": {
 		"vCenterBaseInstallPath" : "C:\\Software\\VMware\\vCenter 5.5a\\",
 		"SSO_DeployMode" : "FIRSTDOMAIN",
@@ -34,6 +26,7 @@
         "vCenter_TC_HTTP_PORT" : "8080",
         "vCenter_TC_HTTPS_PORT" : "8443",
         "vCenter_VCS_ADAM_LDAP_PORT" : "389",
-        "vCenter_VCS_ADAM_SSL_PORT" : "902"
+        "vCenter_VCS_ADAM_SSL_PORT" : "902",
+        "ServiceLogonRightAccount" : "domain\\administrator""
 	}
 }
