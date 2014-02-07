@@ -1,5 +1,5 @@
-vCenter5.5.Installer.Module
-===========================
+vCenter 5.5 Installer PowerShell Module
+=======================================
 
 PowerShell Module to install VMware vSphere vCenter 5.5.  Designed for automated installation of vCenter with data stored in a JSON file. This has been tested on Windows Server 2012 with a MS SQL 2008 database. The vCenter service runs as a domain account. 
 
@@ -15,5 +15,20 @@ Installation of all vCenter Server components requires Administrator‐le
 ##Example 
 ```powershell
 Import-Module vcenterInstallation -force
-Install-vCenter "D:\data\vcenter.json"
+
+Set-ServiceLogonRight_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-MSVC2005_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-VMwareSSO_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-VMwareInventoryService_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-VMwarevCenter_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-VMwarevSphereClient_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+Install-VMwarevSphereWebClient_JSON -ConfigFilePath "C:\data\vcenter.json"
+
+
 ```
