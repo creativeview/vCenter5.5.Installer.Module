@@ -5,7 +5,7 @@
 ## Date        : 07/02/2014
 ## Notes       : More information about this scipt can be found at
 ##               http://creativeview.co.uk
-## Version     : 1.1
+## Version     : 1.1.1
 ## =====================================================================
 
 function Test-NotNull()
@@ -687,8 +687,8 @@ function Install-VMwarevSphereWebClient_JSON{
     The path to the json data file containing the configuration.
 
     .NOTES
-    Version: 1.1
-    Date: 03/02/2014
+    Version: 1.1.1
+    Date: 07/02/2014
     Tag: 
 #>
 [CmdletBinding()]
@@ -701,8 +701,14 @@ function Install-VMwarevSphereWebClient_JSON{
     $InstallParameters = Get-ConfigFile -ConfigFilePath $ConfigFilePath
     
     if ((Test-NotNull -Value $InstallParameters.("vCenterBaseInstallPath")) -eq $false) { Write-host "The value vCenterBaseInstallPath can't be null. Script terminating. " -ForegroundColor Red; break} else {$vCenterBaseInstallPath = $InstallParameters.("vCenterBaseInstallPath")}
+    if ((Test-NotNull -Value $InstallParameters.("vcenterIPAddress")) -eq $false) { Write-host "The value vcenterIPAddress can't be null. Script terminating. " -ForegroundColor Red; break} else {$vcenterIPAddress = $InstallParameters.("vcenterIPAddress")}
+    if ((Test-NotNull -Value $InstallParameters.("SSO_ADMIN")) -eq $false) { Write-host "The value SSO_ADMIN can't be null. Script terminating. " -ForegroundColor Red; break} else {$SSO_ADMIN = $InstallParameters.("SSO_ADMIN")}
+    if ((Test-NotNull -Value $InstallParameters.("SSO_PWD")) -eq $false) { Write-host "The value SSO_PWD can't be null. Script terminating. " -ForegroundColor Red; break} else {$SSO_PWD = $InstallParameters.("SSO_PWD")}
+    if ((Test-NotNull -Value $InstallParameters.("SSO_HTTPport")) -eq $false) { Write-host "The value SSO_HTTPport can't be null. Script terminating. " -ForegroundColor Red; break} else {$SSO_HTTPport = $InstallParameters.("SSO_HTTPport")}
+    if ((Test-NotNull -Value $InstallParameters.("vCenterWebClient_HTTP_PORT")) -eq $false) { Write-host "The value vCenterWebClient_HTTP_PORT can't be null. Script terminating. " -ForegroundColor Red; break} else {$vCenterWebClient_HTTP_PORT = $InstallParameters.("vCenterWebClient_HTTP_PORT")}
+    if ((Test-NotNull -Value $InstallParameters.("vCenterWebClient_HTTPS_PORT")) -eq $false) { Write-host "The value vCenterWebClient_HTTPS_PORT can't be null. Script terminating. " -ForegroundColor Red; break} else {$vCenterWebClient_HTTPS_PORT = $InstallParameters.("vCenterWebClient_HTTPS_PORT")}
     
-    Return Install-VMwarevSphereWebClient -vCenterBaseInstallPath $vCenterBaseInstallPath
+    Return Install-VMwarevSphereWebClient -vCenterBaseInstallPath $vCenterBaseInstallPath -vcenterIPAddress $vcenterIPAddress -SSO_ADMIN $SSO_ADMIN -SSO_PWD $SSO_PWD -SSO_HTTPport $SSO_HTTPport -vCenterWebClient_HTTP_PORT $vCenterWebClient_HTTP_PORT -vCenterWebClient_HTTPS_PORT $vCenterWebClient_HTTPS_PORT
  }
     end {
         
@@ -723,8 +729,8 @@ function Install-VMwarevSphereWebClient{
     The base location of the VMware vCenter installation. 
 
     .NOTES
-    Version: 1.1
-    Date: 03/02/2014
+    Version: 1.1.1
+    Date: 07/02/2014
     Tag: 
 #>
 [CmdletBinding()]
@@ -732,6 +738,10 @@ function Install-VMwarevSphereWebClient{
     Param
     (
     [parameter(Mandatory=$true,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$vCenterBaseInstallPath,
+    [parameter(Mandatory=$true,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$vcenterIPAddress,
+    [parameter(Mandatory=$true,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$SSO_ADMIN,
+    [parameter(Mandatory=$true,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$SSO_PWD,
+    [parameter(Mandatory=$true,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$SSO_HTTPport,
     [parameter(Mandatory=$false,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$vCenterWebClient_HTTP_PORT = "9090",
     [parameter(Mandatory=$false,ValueFromPipeline=$true)][ValidateNotNullOrEmpty()][string]$vCenterWebClient_HTTPS_PORT = "9443"
     )    
