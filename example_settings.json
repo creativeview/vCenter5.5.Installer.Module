@@ -29,6 +29,6 @@
         "vCenter_VCS_ADAM_SSL_PORT" : "902",
 		"vCenterWebClient_HTTP_PORT" : "9090",
         "vCenterWebClient_HTTPS_PORT": "9443",
-        "ServiceLogonRightAccount" : "domain\\administrator""
+        "ServiceLogonRightAccount" : "domain\\administrator"
 	}
 }
